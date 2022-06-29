@@ -28,6 +28,7 @@ const ProductAll = () => {
       setError(err.message);
     }
   };
+  
   //API호출
   useEffect(() => {
     getProducts();

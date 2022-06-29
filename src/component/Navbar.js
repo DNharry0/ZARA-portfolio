@@ -72,12 +72,12 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         {authenticate ? (
           <li onClick={() => setAuthenticate(false)}>
             <MdPerson size={30} />
-            <span className="log-out">반갑습니다 {customer}님</span>
+            <span className="log-out"> 로그아웃</span>
           </li>
         ) : (
           <li onClick={() => navigate("/login")}>
             <MdPersonOutline size={30} />
-            <span className="log-In">로그인 해주세요</span>
+            <span className="log-In"> 로그인 해주세요</span>
           </li>
         )}
 

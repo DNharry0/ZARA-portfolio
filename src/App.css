@@ -147,7 +147,7 @@
   }
 }
 
-/* detail page */
+/* ProductDetail */
 .detail-img {
   display: flex;
   justify-content: flex-end;
@@ -170,13 +170,36 @@
   }
 }
 
+.product-info{
+  font-size: larger;
+}
+
+.drop-down {
+  margin-top: 30px;
+}
+
+.add-button {
+  margin-top: 30px;
+}
+
+.note-section {
+  margin-top: 20px;
+}
+
+.note {
+  padding-top: 5px;
+  display: flex;
+  list-style-type: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* footer */
 .footer-section {
   border-top: 1px solid rgb(170, 170, 170);
   margin: 150px;
 }
-
-
 
 h3 {
   height: 40px;
