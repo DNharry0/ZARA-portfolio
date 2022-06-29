@@ -37,6 +37,8 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     }
   };
 
+  const customer = ["강환주"]
+
   return (
     <div className="header">
       <div className="title">ZARA 커뮤니티에 가입해 최신소식을 받아보세요</div>
@@ -70,12 +72,12 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         {authenticate ? (
           <li onClick={() => setAuthenticate(false)}>
             <MdPerson size={30} />
-            <span className="log-out"></span>
+            <span className="log-out">반갑습니다 {customer}님</span>
           </li>
         ) : (
           <li onClick={() => navigate("/login")}>
             <MdPersonOutline size={30} />
-            <span className="log-In"></span>
+            <span className="log-In">로그인 해주세요</span>
           </li>
         )}
 
