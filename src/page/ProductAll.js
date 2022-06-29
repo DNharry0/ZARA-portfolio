@@ -28,7 +28,7 @@ const ProductAll = () => {
       setError(err.message);
     }
   };
-  
+
   //API호출
   useEffect(() => {
     getProducts();
@@ -46,14 +46,14 @@ const ProductAll = () => {
           {error}
         </Alert>
       ) : (
-        <Row>
-          {products.length > 0 &&
-            products.map((item) => (
-              <Col md={3} sm={12} key={item.id}>
-                <ProductCard item={item} />
-              </Col>
-            ))}
-        </Row>
+          <Row>
+            {products.length > 0 &&
+              products.map((item) => (
+                <Col id="1" md={3} sm={12} key={item.id}>
+                  <ProductCard item={item} />
+                </Col>
+              ))}
+          </Row>
       )}
 
       <ReactPlayer
