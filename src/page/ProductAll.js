@@ -10,7 +10,7 @@ const ProductAll = () => {
   const [query, setQuery] = useSearchParams();
   let [error, setError] = useState("");
 
-  const getProducts = async() => {
+  const getProducts = async () => {
     try {
       let keyword = query.get("q") || "";
       let url = `https://my-json-server.typicode.com/DNharry0/zara-json/products?q=${keyword}`;
@@ -35,19 +35,10 @@ const ProductAll = () => {
 
   return (
     <Container>
-
       <MainPhoto />
 
       <h1>Enjoy the NEW from new origins</h1>
       <h1>Now, The movie start</h1>
-
-      <ReactPlayer
-        className="video-section"
-        playing={true}
-        controls={true}
-        muted={true}
-        url="https://youtu.be/H4j2253FnE0"
-      />
 
       {error ? (
         <Alert variant="danger" className="text-center">
@@ -64,10 +55,15 @@ const ProductAll = () => {
         </Row>
       )}
 
+      <ReactPlayer
+        className="video-section"
+        playing={true}
+        controls={true}
+        muted={true}
+        url="https://youtu.be/H4j2253FnE0"
+      />
     </Container>
   );
 };
 
 export default ProductAll;
-
-
