@@ -9,7 +9,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const getProductDetail = async () => {
     setLoading(true);
-    let url = `https://my-json-server.typicode.com/DNharry0/zara-json/products/${id}`;
+    let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-server/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     setLoading(false);
@@ -36,6 +36,7 @@ const ProductDetail = () => {
             <div className="product-info">{product?.title}</div>
             <div className="product-info">
               {product?.price.toLocaleString()}원
+
             </div>
 
             <Dropdown className="drop-down">

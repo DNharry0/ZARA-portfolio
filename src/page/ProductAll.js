@@ -13,7 +13,7 @@ const ProductAll = () => {
   const getProducts = async () => {
     try {
       let keyword = query.get("q") || "";
-      let url = `https://my-json-server.typicode.com/DNharry0/zara-json/products?q=${keyword}`;
+      let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-server/products?q=${keyword}`;
       let response = await fetch(url);
       let data = await response.json();
       if (data.length < 1) {
@@ -38,18 +38,17 @@ const ProductAll = () => {
     <Container>
       <MainPhoto />
 
-      <h1>Enjoy the NEW from new origins</h1>
-      <h1>Now, The movie start</h1>
+      <h1>Enjoy the ZARA origins</h1>
 
       {error ? (
         <Alert variant="danger" className="text-center">
           {error}
         </Alert>
       ) : (
-          <Row>
+          <Row id="1">
             {products.length > 0 &&
-              products.map((item) => (
-                <Col id="1" md={3} sm={12} key={item.id}>
+              products.filter(product => product.sex =='woman').map((item) => (
+                <Col md={3} sm={12} key={item.id}>
                   <ProductCard item={item} />
                 </Col>
               ))}
