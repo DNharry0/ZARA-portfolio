@@ -13,7 +13,7 @@ const ProductAll = () => {
   const getProducts = async () => {
     try {
       let keyword = query.get("q") || "";
-      let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-server/products?q=${keyword}`;
+      let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-fakeserver/products?q=${keyword}`;
       let response = await fetch(url);
       let data = await response.json();
       if (data.length < 1) {
@@ -45,14 +45,33 @@ const ProductAll = () => {
           {error}
         </Alert>
       ) : (
+        <div>
           <Row id="1">
             {products.length > 0 &&
-              products.filter(product => product.sex =='woman').map((item) => (
-                <Col md={3} sm={12} key={item.id}>
-                  <ProductCard item={item} />
-                </Col>
-              ))}
+              products.filter(product => product.sex == "man").map((item) => (
+                  <Col md={3} sm={12} key={item.id}>
+                    <ProductCard item={item} />
+                  </Col>
+                ))}
           </Row>
+          <Row>
+            {products.length > 0 &&
+              products.filter(product => product.sex == "woman").map((item) => (
+                  <Col md={3} sm={12} key={item.id}>
+                    <ProductCard item={item} />
+                  </Col>
+                ))}
+          </Row>
+          <Row>
+            {products.length > 0 &&
+              products.filter(product => product.sex == "kids").map((item) => (
+                  <Col md={3} sm={12} key={item.id}>
+                    <ProductCard item={item} />
+                  </Col>
+                ))}
+          </Row>
+ 
+        </div>
       )}
 
       <ReactPlayer

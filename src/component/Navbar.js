@@ -1,17 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsCartFill } from "react-icons/bs";
 import { MdPerson, MdPersonOutline, MdSearch } from "react-icons/md";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-import { Col, Row } from "react-bootstrap";
-import ProductCard from "./ProductCard";
 //메인페이지부터 공통으로 나오는 부분
 //로그인 누르면 넘어가도록 설정
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
-
   const [open, setOpen] = useState(false);
 
   const hamburgericon = (
@@ -32,24 +28,25 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     />
   );
 
-  const menuList = ["남성", "여성", "어린이"];
+  const menuList =
+    [
+    <Link to="/man" className="mwk">
+      Man
+    </Link>,
+    <Link to="/woman" className="mwk">
+      Woman
+    </Link>,
+    <Link to="/kids" className="mwk">
+      kids
+    </Link>
+  ];
+
   let navigate = useNavigate();
   const onCheckEnter = (event) => {
     if (event.key === "Enter") {
       navigate(`?q=${event.target.value}`);
     }
   };
-
-
-// const getProducts = async () => {
-//   let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-server/products?q=${""}`;
-//   let response = await fetch(url);
-//   let data = await response.json();
-//   setProducts(data);
-//   }
-
-
-// const pic = [menuList].filter((products) => products.id < 8);
 
   return (
     <div className="header">
@@ -59,14 +56,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         <div className="side-btn">
           {open ? closeIcon : hamburgericon}
           <div className="side-menu">
-            {open && menuList.map((menu) => <li>{menu}</li>)}
+            {open && menuList.map((menu) => <div>{menu}</div>)}
           </div>
         </div>
 
         <div className="logo-section">
           <Link to="/">
             <img
-            
               width={160}
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/1000px-Zara_Logo.svg.png"
             />

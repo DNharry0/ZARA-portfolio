@@ -9,7 +9,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const getProductDetail = async () => {
     setLoading(true);
-    let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-server/products/${id}`;
+    let url = `https://my-json-server.typicode.com/DNharry0/ZARA-json-fakeserver/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     setLoading(false);
