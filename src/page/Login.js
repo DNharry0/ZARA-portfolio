@@ -21,7 +21,6 @@ const Login = ({ setAuthenticate }) => {
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="Enter email"
               />
             </div>
             <div className="form-group mt-3">
@@ -29,7 +28,6 @@ const Login = ({ setAuthenticate }) => {
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Enter password"
               />
             </div>
             <div className="d-grid gap-2 mt-3">
