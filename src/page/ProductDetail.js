@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Col, Row, Dropdown, Alert, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 const ProductDetail = () => {
+  const dispatch = useDispatch();
+
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -21,6 +24,11 @@ const ProductDetail = () => {
   }, []);
 
   if (loading || product == null) return <h1>Loading</h1>;
+
+  const increase = () => {
+    dispatch({ type: "INCREMENT" });
+  };
+
   return (
     <Container className="detail-card">
       {error ? (
@@ -36,7 +44,6 @@ const ProductDetail = () => {
             <div className="product-info">{product?.title}</div>
             <div className="product-info">
               {product?.price.toLocaleString()}원
-
             </div>
 
             <Dropdown className="drop-down">
@@ -46,18 +53,24 @@ const ProductDetail = () => {
 
               <Dropdown.Menu>
                 {product?.size.length > 0 &&
-                  product.size.map((item) => (
+                  product.size.map(item => (
                     <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
                   ))}
               </Dropdown.Menu>
             </Dropdown>
-            <Button variant="dark" className="add-button">
-              장바구니
+            <Button onClick={increase} variant="dark" className="add-button">
+              장바구니 추가
             </Button>
             <div className="note-section">
-              <a href="#" className="note">소재, 세탁 방법 및 원산지</a>
-              <a href="#" className="note">오프라인 매장에 재고 상태 보기</a>
-              <a href="#" className="note">배송, 교환 및 반품</a>
+              <a href="#" className="note">
+                소재, 세탁 방법 및 원산지
+              </a>
+              <a href="#" className="note">
+                오프라인 매장에 재고 상태 보기
+              </a>
+              <a href="#" className="note">
+                배송, 교환 및 반품
+              </a>
             </div>
           </Col>
         </Row>

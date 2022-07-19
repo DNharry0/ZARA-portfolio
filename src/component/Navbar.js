@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { BsCartFill } from "react-icons/bs";
 import { MdPerson, MdPersonOutline, MdSearch } from "react-icons/md";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 //메인페이지부터 공통으로 나오는 부분
 //로그인 누르면 넘어가도록 설정
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
+  const count = useSelector(state => state.count);
   const [open, setOpen] = useState(false);
 
   const hamburgericon = (
@@ -28,8 +30,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     />
   );
 
-  const menuList =
-    [
+  const menuList = [
     <Link to="/man" className="mwk">
       Man
     </Link>,
@@ -38,11 +39,11 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     </Link>,
     <Link to="/kids" className="mwk">
       kids
-    </Link>
+    </Link>,
   ];
 
   let navigate = useNavigate();
-  const onCheckEnter = (event) => {
+  const onCheckEnter = event => {
     if (event.key === "Enter") {
       navigate(`?q=${event.target.value}`);
     }
@@ -56,7 +57,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         <div className="side-btn">
           {open ? closeIcon : hamburgericon}
           <div className="side-menu">
-            {open && menuList.map((menu) => <div>{menu}</div>)}
+            {open && menuList.map(menu => <div>{menu}</div>)}
           </div>
         </div>
 
@@ -92,6 +93,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
         <li>
           <BsCartFill size={23} />
+          <span>{count}</span>
         </li>
       </ul>
     </div>

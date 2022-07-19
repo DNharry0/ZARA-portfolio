@@ -6,9 +6,9 @@ import ReactPlayer from "react-player";
 import MainPhoto from "../component/MainPhoto";
 
 const ProductAll = () => {
-  let [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [query, setQuery] = useSearchParams();
-  let [error, setError] = useState("");
+  const [error, setError] = useState("");
 
   const getProducts = async () => {
     try {
@@ -29,7 +29,6 @@ const ProductAll = () => {
     }
   };
 
-  //API호출
   useEffect(() => {
     getProducts();
   }, [query]);
@@ -48,7 +47,9 @@ const ProductAll = () => {
         <div>
           <Row id="1">
             {products.length > 0 &&
-              products.filter(product => product.sex == "man").map((item) => (
+              products
+                .filter(product => product.sex == "man")
+                .map(item => (
                   <Col md={3} sm={12} key={item.id}>
                     <ProductCard item={item} />
                   </Col>
@@ -56,7 +57,9 @@ const ProductAll = () => {
           </Row>
           <Row>
             {products.length > 0 &&
-              products.filter(product => product.sex == "woman").map((item) => (
+              products
+                .filter(product => product.sex == "woman")
+                .map(item => (
                   <Col md={3} sm={12} key={item.id}>
                     <ProductCard item={item} />
                   </Col>
@@ -64,13 +67,14 @@ const ProductAll = () => {
           </Row>
           <Row>
             {products.length > 0 &&
-              products.filter(product => product.sex == "kids").map((item) => (
+              products
+                .filter(product => product.sex == "kids")
+                .map(item => (
                   <Col md={3} sm={12} key={item.id}>
                     <ProductCard item={item} />
                   </Col>
                 ))}
           </Row>
- 
         </div>
       )}
 

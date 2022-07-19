@@ -1,15 +1,15 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { BsTwitter,BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
+import { BsTwitter, BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
 import { RiKakaoTalkFill } from "react-icons/ri";
 
 const Footer = () => {
   const footerList1 = [
-  <BsInstagram />,
-  <BsFacebook />,
-  <BsYoutube />,
-  <BsTwitter/>,
-  <RiKakaoTalkFill/>
+    <BsInstagram />,
+    <BsFacebook />,
+    <BsYoutube />,
+    <BsTwitter />,
+    <RiKakaoTalkFill />,
   ];
 
   const footerList2 = [
