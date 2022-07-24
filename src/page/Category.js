@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../component/ProductCard";
 
-const Woman = () => {
+const Category = ({ gender }) => {
   let [products, setProducts] = useState([]);
   const [query, setQuery] = useSearchParams();
 
@@ -24,7 +24,9 @@ const Woman = () => {
     <Container>
       <Row>
         {products.length > 0 &&
-          products.filter(product => product.sex == "woman").map((item) => (
+          products
+            .filter(product => product.sex == gender)
+            .map(item => (
               <Col md={3} sm={12} key={item.id}>
                 <ProductCard item={item} />
               </Col>
@@ -34,4 +36,4 @@ const Woman = () => {
   );
 };
 
-export default Woman;
+export default Category;

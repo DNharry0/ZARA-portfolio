@@ -4,6 +4,7 @@ import ProductCard from "../component/ProductCard";
 import { useSearchParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import MainPhoto from "../component/MainPhoto";
+import Category from "./Category";
 
 const ProductAll = () => {
   const [products, setProducts] = useState([]);
@@ -45,36 +46,9 @@ const ProductAll = () => {
         </Alert>
       ) : (
         <div>
-          <Row id="1">
-            {products.length > 0 &&
-              products
-                .filter(product => product.sex == "man")
-                .map(item => (
-                  <Col md={3} sm={12} key={item.id}>
-                    <ProductCard item={item} />
-                  </Col>
-                ))}
-          </Row>
-          <Row>
-            {products.length > 0 &&
-              products
-                .filter(product => product.sex == "woman")
-                .map(item => (
-                  <Col md={3} sm={12} key={item.id}>
-                    <ProductCard item={item} />
-                  </Col>
-                ))}
-          </Row>
-          <Row>
-            {products.length > 0 &&
-              products
-                .filter(product => product.sex == "kids")
-                .map(item => (
-                  <Col md={3} sm={12} key={item.id}>
-                    <ProductCard item={item} />
-                  </Col>
-                ))}
-          </Row>
+          <Category gender={"man"} />
+          <Category gender={"woman"} />
+          <Category id="1" gender={"kids"} />
         </div>
       )}
 

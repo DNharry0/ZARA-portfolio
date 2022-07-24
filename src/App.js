@@ -7,9 +7,7 @@ import Login from "./page/Login";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import PrivateRoute from "./route/PrivateRoute";
-import Man from "./page/Man";
-import Woman from "./page/Woman";
-import Kids from "./page/Kids";
+import Category from "./page/Category";
 
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
@@ -26,12 +24,9 @@ function App() {
           path="/product/:id"
           element={<PrivateRoute authenticate={authenticate} />}
         />
-        <Route
-          path="/man" element={<Man />} />
-        <Route
-          path="/woman" element={<Woman />} />
-        <Route
-          path="/kids" element={<Kids />} />
+        <Route path="/man" element={<Category gender={"man"} />} />
+        <Route path="/woman" element={<Category gender={"woman"} />} />
+        <Route path="/kids" element={<Category gender={"kids"} />} />
       </Routes>
 
       <Footer />
